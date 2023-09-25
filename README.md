@@ -33,32 +33,22 @@ changing signature of any methods of these classes.
 However, you're free to introduce new modules, packages, classes, methods and/or override existing ones.
 
 # Task 1
-Let's assume one of your colleagues was given a task to provide implementation for
-`AccountService.clear`, `AccountService.createAccount` and `AccountService.getAccount` methods.
-In particular, it was required to do so in the most efficient way possible.
+The following methods are already implemented:
+`AccountService.clear`, `AccountService.createAccount` and `AccountService.getAccount`.
 
-**Goal:** Please, perform code review and change implementation accordingly.
-
-**Hint:** Consider performance of `AccountService.getAccount` method.
-
+**Goal:**
+1. Please, perform code **TEST/REVIEW** and change implementation accordingly.
+2. Improve the performance for `AccountService.getAccount`.
 
 # Task 2
 We want to start expanding our business logic, and for now most important feature is to allow money transfers
-between accounts. 
+between accounts.
 
 **Goal:** Implement `AccountService.transfer`
 
 **Hint:** Assume we're in a single-threaded environment
 
 # Task 3
-Assume that transfers now can go from different client applications and threads.
-Please, rework your implementation of single-threaded `AccountService.transfer` to work in the multi-threaded environment 
-
-**Goal:** Have money transfer between accounts working in concurrent environment
-
-**Note:** You can safely assume that `AccountService` is the only place where accounts are accessed
-
-# Task 4
 Create a REST service for `transfer` method. It should still operate with accounts in-memory
 
 **Goal:** Have money transfer between accounts accessible to the outside world
@@ -71,6 +61,14 @@ Response codes are the following:
 - 400 (Bad Request) -  one of the parameters in not present or amount is invalid
 - 404 (Not Found) - account is not found
 - 500 (Internal Server Error) - insufficient account balance
+
+# Task 4
+Assume that transfers now can go from different client applications and threads.
+Please, rework your implementation of single-threaded `AccountService.transfer` to work in the multi-threaded environment
+
+**Goal:** Have money transfer between accounts working in concurrent environment
+
+**Note:** You can safely assume that `AccountService` is the only place where accounts are accessed
 
 # Task 5
 Create 2 tables for accounts and corresponding transfers. Accounts column set should correspond to java code:
@@ -89,4 +87,4 @@ should be added:
 
 **Goal:** Provide SQL to create both tables (`resources/sql/data/accounts.sql`) and (`resources/sql/data/transfers.sql`)
 and sql query (`resources/sql/select.sql`) that finds all accounts
- that in total transferred more than 1000$ to other people starting from 2019-01-01 
+that in total transferred more than 1000$ to other people starting from 2019-01-01 
