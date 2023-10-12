@@ -1,15 +1,22 @@
 package com.devexperts;
 
 import com.devexperts.service.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.devexperts.service.AccountServiceImpl;
+import org.junit.Before;
+import org.junit.Test;
 
-@SpringBootTest
 public class AccountServiceTest {
 
-    @Autowired
     private AccountService accountService;
 
-    //Write test here
+    @Before
+    public void before() {
+        // Initiate accountService
+        accountService = new AccountServiceImpl();
+    }
 
+    @Test
+    public void givenAnAccount_tryToCreateThenGet_shouldReturnAccountAsExpectation() {
+        //Write your test here
+    }
 }
